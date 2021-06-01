@@ -17,40 +17,34 @@ function Bar() {
   }
 
 
-function clickChangeFirst() {
-    let btnElt = document.querySelectorAll('.card')[0].querySelector('.btn-outline-secondary');
-    btnElt.addEventListener('click', (e) => {
-        e.preventDefault();
-        console.log(e.currentTarget);
-        e.currentTarget.style.color = 'red';
-    });
-}
+  let cardHtmlBtn = document.querySelectorAll('div.card-body .btn')[1];
+  let cardText = document.querySelectorAll('div.card-body p')[0];
+  
+  cardHtmlBtn.addEventListener('click',function(){
+    cardText.style.color='red' 
+  });
 
 
-function clickChangeSecond() {
-    let btnElt = document.querySelectorAll('.card')[1].querySelector('.btn-outline-secondary');
-    let defaultColor = '';
-    btnElt.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (e.currentTarget.style.color === 'green') {
-            e.currentTarget.style.color = defaultColor;
-        }
-        else {
-            e.currentTarget.style.color = 'green';
-        }
-    });
-}
+  let cardHtmlBtn2 = document.querySelectorAll('div.card-body .btn')[3];
+  let cardText2 = document.querySelectorAll('div.card-body p')[1];
+  
+  cardHtmlBtn2.addEventListener('click', function(){
+    if(cardText2.style.color === 'green'){
+      cardText2.style.color= '';
+    }else{
+      cardText2.style.color = 'green';
+    }
+  });
 
-function disabledBootstrap() {
-    let btnElt = document.querySelector('.navbar');
-    let linkElt = document.querySelector('link[rel="stylesheet"]');
-    btnElt.addEventListener('dblclick', e => {
-        e.preventDefault();
-        if (linkElt.disabled) {
-            linkElt.disabled = false;
-        }
-        else {
-            linkElt.disabled = true;
-        }
-    });
-}
+  let bootstrapCdn = document.querySelector('head link');
+  let navBar = document.getElementsByTagName('header')[0];
+  
+  navBar.addEventListener('dblclick',function(){
+    if (bootstrapCdn.href==="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"){
+      bootstrapCdn.href=""; 
+    }else{
+      bootstrapCdn.href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css";
+    }
+  });
+
+
